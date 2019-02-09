@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="frontend/|latest/Frontend/|latest/Frontend/dist/|latest/Frontend/e2e/|latest/Frontend/node_modules/" kind="src" path=""/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

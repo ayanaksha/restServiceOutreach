@@ -1,0 +1,27 @@
+version: '3'
+services:
+  sales-app:
+    image: kparitosh/online-sales:sales-app
+    restart: always
+    network_mode: host
+    ports:
+      - 8082:8082
+    expose:
+      - 8082
+    depends_on:
+      - sales-sql
+  sales-sql:
+    image: sql:4
+    network_mode: host
+    ports:
+      - 3306:3306
+    environment:
+      SQL_DATABASE: group16b
+      SQL_USER: group16b@group16b
+      SQL_PASSWORD: Password123@
+  angular:
+    image: kparitosh/online-sales:angular-app
+    network_mode: host
+    container_name: angular-docker
+    ports:
+      - 4200:4200

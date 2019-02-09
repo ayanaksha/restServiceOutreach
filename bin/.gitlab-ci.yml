@@ -1,0 +1,22 @@
+image: 'maven:3-jdk-8'
+before_script:
+  - 'source ./project.sh'
+stages:
+ - build
+services:
+  - 'sql:4'
+variables:
+  SQL_DATABASE: group16b
+  SQL_CI_URL: jdbc:oracle:thin:@group16b.database.windows.net:1443:group16b
+  SQL_USER: group16b@group16b
+  SQL_PASSWORD: Password123@
+cache:
+  paths:
+    - .m2/repository
+    - target
+maven-build:
+ stage: build
+ script: "mvn package -U"
+ artifacts:
+  paths:
+   - target/*.jar
